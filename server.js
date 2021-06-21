@@ -17,9 +17,10 @@ app.engine('hbs',exphbs({ extname: 'hbs',defaultLayout: 'mainLayout', layoutsDir
 app.set('view engine','hbs');
 
 app.get('/',(req, res) => res.redirect('student'));
-
+app.use('/student',studentController);
+app.get("/",(req,res) => { res.json("working")});
 app.listen(8000,() => {
     console.log('Express server started at port : 8000');
 
 });
-  app.use('/student',studentController);
+ 
