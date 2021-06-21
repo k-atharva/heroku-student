@@ -5,6 +5,7 @@ const path = require('path');
 const exphbs =require('express-handlebars');
 const studentController = require('./controllers/studentController');
 const bodyParser = require('body-parser');
+const PORT = process.env.PORT||8000;
  
 var app = express();
 app.use(bodyParser.urlencoded({
@@ -19,7 +20,7 @@ app.set('view engine','hbs');
 app.get('/',(req, res) => res.redirect('student'));
 app.use('/student',studentController);
 app.get("/",(req,res) => { res.json("working")});
-app.listen(8000,() => {
+app.listen(PORT,() => {
     console.log('Express server started at port : 8000');
 
 });
